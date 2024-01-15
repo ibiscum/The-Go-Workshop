@@ -1,12 +1,11 @@
 package main
 
 import (
-	"net/http"
 	"fmt"
+	"log"
 )
 
 func main() {
 	fmt.Println("Hello")
 	log.Println("Packt")
 }
-

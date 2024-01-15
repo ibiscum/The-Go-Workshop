@@ -1,15 +1,20 @@
 package main
-import "fmt"
-import "database/sql"
-import _ "github.com/lib/pq" 
-func main(){
+
+import (
+	"database/sql"
+	"fmt"
+
+	_ "github.com/lib/pq"
+)
+
+func main() {
 	db, err := sql.Open("postgres", "user=postgres password=Start!123 host=127.0.0.1 port=5432 dbname=postgres sslmode=disable")
 	if err != nil {
-	  panic(err)
-	}else{
+		panic(err)
+	} else {
 		fmt.Println("The connection to the DB was successfully initialized!")
 	}
-DBCreate := `
+	DBCreate := `
 	CREATE TABLE public.test
 	(
 		id integer,
@@ -22,11 +27,11 @@ DBCreate := `
 	ALTER TABLE public.test
 		OWNER to postgres;
 	`
-	_,err = db.Exec(DBCreate)
+	_, err = db.Exec(DBCreate)
 	if err != nil {
 		panic(err)
-	} else{
+	} else {
 		fmt.Println("The table was successfully created!")
 	}
 	db.Close()
-}	
+}

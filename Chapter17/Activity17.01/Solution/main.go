@@ -13,7 +13,6 @@ func ExampleHandler(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	fmt.Fprintf(w, "Hello Packt")
 	log.Println("completed")
-	return
 }
 
 func main() {
