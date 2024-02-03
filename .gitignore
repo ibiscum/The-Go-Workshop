@@ -1,12 +1,1 @@
-nummap.txt
-beowulf.txt
-out.txt
-*.bkp
-filewrite.data
-metalloids.txt
-book.dat
-out.gz
-iocopy.data
-iopipe.data
-teereader.gz
-iowritestr.data
+*.exe
