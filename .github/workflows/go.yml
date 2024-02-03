@@ -16,10 +16,10 @@ jobs:
     strategy:
         matrix: { dir: ['./Chapter01/Activity01.01', './Chapter01/Activity01.02'] }
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Set up Go
-      uses: actions/setup-go@v4
+      uses: actions/setup-go@v5
       with:
         go-version: '1.20'
 
@@ -27,5 +27,18 @@ jobs:
       working-directory: ${{ matrix.dir }}
       run: go build -v .
 
-#    - name: Test
-#      run: go test -v ./Chapter01
+  ch04:
+      runs-on: ubuntu-latest
+      strategy:
+          matrix: { dir: ['./Chapter04/Activity04.01', './Chapter04/Activity04.02'] }
+      steps:
+        - uses: actions/checkout@v4
+    
+        - name: Set up Go
+          uses: actions/setup-go@v5
+          with:
+            go-version: '1.20'
+    
+        - name: Test
+          working-directory: ${{ matrix.dir }}
+          run: go test -v .
