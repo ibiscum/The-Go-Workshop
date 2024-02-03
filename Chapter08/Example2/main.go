@@ -2,6 +2,13 @@
 // explode splits s into a slice of UTF-8 strings,
 // one string per Unicode character up to a maximum of n (n < 0 means no limit).
 // Invalid UTF-8 sequences become correct encodings of U+FFFD.
+package main
+
+import (
+	"fmt"
+	"unicode/utf8"
+)
+
 func explode(s string, n int) []string {
 	l := utf8.RuneCountInString(s)
 	if n < 0 || n > l {
@@ -20,4 +27,9 @@ func explode(s string, n int) []string {
 		a[n-1] = s
 	}
 	return a
+}
+
+func main() {
+	a := explode("The quick brown fox jumps over the lazy dog", 60)
+	fmt.Println(a)
 }

@@ -1,0 +1,8 @@
+* text=auto
+*.go text eol=lf
+*.txt text
+*.vcproj text eol=crlf
+*.sh text eol=lf
+*.jpg -text
+*.bmp -text
+*.png -text
