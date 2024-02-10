@@ -1,8 +1,10 @@
 package main
+
 import (
 	"fmt"
 	"reflect"
 )
+
 func main() {
 	var x = 5
 	Print(x)

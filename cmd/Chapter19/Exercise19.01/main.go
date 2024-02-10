@@ -1,9 +1,11 @@
 package main
+
 import (
 	"fmt"
 	"math"
 	"reflect"
 )
+
 type circle struct {
 	radius float64
 }
@@ -11,6 +13,7 @@ type rectangle struct {
 	length  float64
 	breadth float64
 }
+
 func area(input interface{}) float64 {
 	inputType := reflect.TypeOf(input)
 	if inputType.Name() == "circle" {

@@ -1,8 +1,10 @@
 package main
+
 import (
 	"fmt"
 	"reflect"
 )
+
 func main() {
 	runDeepEqual(nil, nil)
 	runDeepEqual(make([]int, 10), make([]int, 10))

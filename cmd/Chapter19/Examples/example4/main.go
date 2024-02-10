@@ -1,8 +1,10 @@
 package main
+
 import (
 	"fmt"
 	"reflect"
 )
+
 type Animal struct {
 	Name string
 }
@@ -12,6 +14,7 @@ type Object struct {
 type Person struct {
 	Name string
 }
+
 func MyPrint(input interface{}) {
 	t := reflect.TypeOf(input)
 	v := reflect.ValueOf(input)

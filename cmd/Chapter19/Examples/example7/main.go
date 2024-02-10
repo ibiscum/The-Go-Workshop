@@ -1,4 +1,5 @@
 package main
+
 // #include <stdio.h>
 // #include <stdlib.h>
 // static void myprint(char* s) {
@@ -6,6 +7,7 @@ package main
 // }
 import "C"
 import "unsafe"
+
 func main() {
 	cs := C.CString("Hello World!")
 	C.myprint(cs)
