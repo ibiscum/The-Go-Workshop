@@ -1,16 +1,21 @@
 package main
+
 import "fmt"
+
 type Developer struct {
 	Individual Employee
 	HourlyRate int
 	WorkWeek   [7]int
 }
+
 type Employee struct {
 	Id        int
 	FirstName string
 	LastName  string
 }
+
 type Weekday int
+
 const (
 	Sunday Weekday = iota //starts at zero
 	Monday
@@ -20,8 +25,16 @@ const (
 	Friday
 	Saturday
 )
+
 func main() {
-	d := Developer{Individual: Employee{Id: 1, FirstName: "Tony", LastName: "Stark"}, HourlyRate: 10}
+	d := Developer{
+		Individual: Employee{
+			Id:        1,
+			FirstName: "Tony",
+			LastName:  "Stark",
+		},
+		HourlyRate: 10,
+	}
 	x := nonLoggedHours()
 	fmt.Println("Tracking hours worked thus far today: ", x(2))
 	fmt.Println("Tracking hours worked thus far today: ", x(3))
@@ -35,9 +48,11 @@ func main() {
 	d.LogHours(Saturday, 8)
 	d.PayDetails()
 }
+
 func (d *Developer) LogHours(day Weekday, hours int) {
 	d.WorkWeek[day] = hours
 }
+
 func (d *Developer) HoursWorked() int {
 	total := 0
 	for _, v := range d.WorkWeek {
@@ -45,6 +60,7 @@ func (d *Developer) HoursWorked() int {
 	}
 	return total
 }
+
 func (d *Developer) PayDay() (int, bool) {
 	if d.HoursWorked() > 40 {
 		hoursOver := d.HoursWorked() - 40
@@ -54,6 +70,7 @@ func (d *Developer) PayDay() (int, bool) {
 	}
 	return d.HoursWorked() * d.HourlyRate, false
 }
+
 func nonLoggedHours() func(int) int {
 	total := 0
 	return func(i int) int {
@@ -61,6 +78,7 @@ func nonLoggedHours() func(int) int {
 		return total
 	}
 }
+
 func (d *Developer) PayDetails() {
 	for i, v := range d.WorkWeek {
 		switch i {

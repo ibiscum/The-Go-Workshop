@@ -20,7 +20,6 @@ func countNumbers(c context.Context, r chan int) {
 	}
 }
 
-
 func main() {
 	r := make(chan int)
 	c := context.TODO()
@@ -28,11 +27,11 @@ func main() {
 	go countNumbers(cl, r)
 
 	go func() {
-		time.Sleep(time.Millisecond*100*3)
+		time.Sleep(time.Millisecond * 100 * 3)
 		stop()
 	}()
 
-	v := <- r
+	v := <-r
 
 	log.Println(v)
 }

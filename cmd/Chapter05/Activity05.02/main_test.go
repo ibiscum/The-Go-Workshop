@@ -33,7 +33,7 @@ func TestHoursWorked(t *testing.T) {
 			d.WorkWeek = tc.workWeek
 			got := d.HoursWorked()
 			if tc.wanted != got {
-				t.Errorf("Hours worked not matching got: %v wanted: %v", got, tc.wanted)
+				t.Errorf("Hours worked not matching. got: %v wanted: %v", got, tc.wanted)
 			}
 		})
 

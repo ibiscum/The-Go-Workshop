@@ -26,7 +26,7 @@ func TestTriangleArea(t *testing.T) {
 			s := Triangle{Base: tc.base, Height: tc.height}
 			got := s.area()
 			if got != tc.wanted {
-				fmt.Errorf("Got: %v wandted %v", got, tc.wanted)
+				fmt.Errorf("Got: %v wanted %v", got, tc.wanted)
 			}
 
 		})
