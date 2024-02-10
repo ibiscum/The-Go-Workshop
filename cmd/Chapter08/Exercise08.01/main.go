@@ -1,6 +1,6 @@
 package main
 
-import "github.com/ibiscum/The-Go-Workshop/Chapter08/Exercise8.01/shape"
+import "github.com/ibiscum/The-Go-Workshop/internal/shape"
 
 func main() {
 	t := shape.Triangle{Base: 15.5, Height: 20.1}

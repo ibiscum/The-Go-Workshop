@@ -1,7 +1,0 @@
-go 1.20
-
-use (
-	./Chapter01
-	./Chapter04
-	./Chapter10
-)

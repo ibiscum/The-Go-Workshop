@@ -40,7 +40,7 @@ func main() {
 
 }
 
-func (dd *directDeposit) validateRoutingNumber() {
+func (dd *directDeposit) validateRoutingNumber() error {
 	if dd.routingNumber < 100 {
 		panic(ErrInvalidRoutingNum)
 	}
