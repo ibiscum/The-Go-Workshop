@@ -1,4 +1,4 @@
-//go:build 386
+//go:build x86_64
 
 package custom
 
