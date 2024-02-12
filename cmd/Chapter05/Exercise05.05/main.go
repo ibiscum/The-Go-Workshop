@@ -9,6 +9,7 @@ func main() {
 	fmt.Println(sum(5, 4))
 	fmt.Println(sum(i...))
 }
+
 func sum(nums ...int) int {
 	total := 0
 	for _, num := range nums {

@@ -18,6 +18,7 @@ func main() {
 	fmt.Println(result2)
 	fmt.Println()
 }
+
 func csvHdrCol(hdr []string) map[int]string {
 	csvIdxToCol := make(map[int]string)
 	for i, v := range hdr {

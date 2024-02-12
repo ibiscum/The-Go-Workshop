@@ -9,8 +9,8 @@ import (
 	"sync"
 )
 
-func source(filename string, out chan int, wg *sync.WaitGroup)  {
-	f, err :=  os.Open(filename)
+func source(filename string, out chan int, wg *sync.WaitGroup) {
+	f, err := os.Open(filename)
 	if err != nil {
 		panic(err)
 	}
@@ -35,9 +35,9 @@ func source(filename string, out chan int, wg *sync.WaitGroup)  {
 	}
 }
 
-func splitter(in, odd, even chan int, wg *sync.WaitGroup)  {
+func splitter(in, odd, even chan int, wg *sync.WaitGroup) {
 	for i := range in {
-		switch i%2 {
+		switch i % 2 {
 		case 0:
 			even <- i
 		case 1:
@@ -64,11 +64,11 @@ func merger(even, odd chan int, wg *sync.WaitGroup, resultFile string) {
 	if err != nil {
 		panic(err)
 	}
-	for i:= 0; i< 2; i++{
+	for i := 0; i < 2; i++ {
 		select {
-		case i:= <- even:
+		case i := <-even:
 			rs.Write([]byte(fmt.Sprintf("Even %d\n", i)))
-		case i:= <- odd:
+		case i := <-odd:
 			rs.Write([]byte(fmt.Sprintf("Odd %d\n", i)))
 		}
 
@@ -76,7 +76,6 @@ func merger(even, odd chan int, wg *sync.WaitGroup, resultFile string) {
 	rs.Close()
 	wg.Done()
 }
-
 
 func main() {
 	wg := &sync.WaitGroup{}
@@ -92,7 +91,7 @@ func main() {
 	go source("./input2.dat", out, wg)
 	go splitter(out, odd, even, wg2)
 	go sum(even, sumeven, wg2)
-	go sum(odd, sumodd,wg2)
+	go sum(odd, sumodd, wg2)
 	go merger(sumeven, sumodd, wg2, "./result.txt")
 	wg.Wait()
 	close(out)

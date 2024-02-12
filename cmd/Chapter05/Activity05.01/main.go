@@ -1,5 +1,7 @@
 package main
+
 import "fmt"
+
 type Developer struct {
 	Individual Employee
 	HourlyRate int
@@ -11,6 +13,7 @@ type Employee struct {
 	LastName  string
 }
 type Weekday int
+
 const (
 	Sunday Weekday = iota //starts at zero
 	Monday
@@ -20,6 +23,7 @@ const (
 	Friday
 	Saturday
 )
+
 func main() {
 	d := Developer{Individual: Employee{Id: 1, FirstName: "Tony", LastName: "Stark"}, HourlyRate: 10}
 	d.LogHours(Monday, 8)

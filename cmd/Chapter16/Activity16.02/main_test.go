@@ -7,7 +7,7 @@ import (
 	"testing"
 )
 
-func Test_Main(t *testing.T) {
+func TestMain(t *testing.T) {
 	main()
 	bts, err := ioutil.ReadFile("result.txt")
 	if err != nil {
@@ -24,7 +24,7 @@ func Test_Main(t *testing.T) {
 	}
 
 	empty := strings.ReplaceAll(evens, "Even 12\n", "")
-	if len(empty) !=0 {
+	if len(empty) != 0 {
 		t.Error("non empty string", empty)
 	}
 }
@@ -37,13 +37,13 @@ func TestSource(t *testing.T) {
 	go source("./input1.dat", out, wg)
 
 	nums := []int{}
-	for i:=0;i<3;i++ {
+	for i := 0; i < 3; i++ {
 		nums = append(nums, <-out)
 	}
 
-	for k,v:= range []int{1,2,5} {
+	for k, v := range []int{1, 2, 5} {
 		if nums[k] != v {
-			t.Errorf("Wrong inputs, expected on index %d value %d but received %d", k,v,nums[k])
+			t.Errorf("Wrong inputs, expected on index %d value %d but received %d", k, v, nums[k])
 		}
 	}
 }
@@ -56,24 +56,23 @@ func TestSplitter(t *testing.T) {
 	even := make(chan int)
 	go splitter(in, odd, even, wg)
 
-	for i:=1;i<=10; i++ {
+	for i := 1; i <= 10; i++ {
 		in <- i
 	}
 	close(in)
 
-	oddSum, evenSum := 0,0
+	oddSum, evenSum := 0, 0
 
-	for i:=1;i<=10; i++ {
+	for i := 1; i <= 10; i++ {
 		select {
-		case i := <- odd:
+		case i := <-odd:
 			oddSum += i
-		case i := <- even:
+		case i := <-even:
 			evenSum += i
 		}
 	}
 
 	wg.Wait()
-
 
 	if oddSum != 1+3+5+7+9 {
 		t.Error("Odds shoudl not be ", oddSum)
@@ -90,14 +89,14 @@ func TestSum(t *testing.T) {
 	in := make(chan int, 10)
 	out := make(chan int, 1)
 
-	go sum(in,out,wg)
+	go sum(in, out, wg)
 
-	for i:=0;i<10;i++ {
+	for i := 0; i < 10; i++ {
 		in <- 1
 	}
 	close(in)
 
-	sm  := <- out
+	sm := <-out
 	if sm != 10 {
 		t.Errorf("Expected 10 but received %d", sm)
 	}
@@ -110,7 +109,7 @@ func TestMerger(t *testing.T) {
 	odd := make(chan int, 1)
 	outFl := "test_output.txt"
 
-	go merger(even, odd,  wg , outFl)
+	go merger(even, odd, wg, outFl)
 
 	even <- 10
 	odd <- 20
@@ -131,7 +130,7 @@ func TestMerger(t *testing.T) {
 	}
 
 	empty := strings.ReplaceAll(evens, "Even 10\n", "")
-	if len(empty) !=0 {
+	if len(empty) != 0 {
 		t.Error("non empty string", empty)
 	}
 

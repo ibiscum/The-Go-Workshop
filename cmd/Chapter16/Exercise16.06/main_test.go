@@ -14,7 +14,7 @@ func Test_Main(t *testing.T) {
 
 	output := s.String()
 	ln := len(output)
-	res := output[ln-5:ln-1]
+	res := output[ln-5 : ln-1]
 
 	if res != "5050" {
 		t.Errorf("Expected 5050 but received %s", res)
