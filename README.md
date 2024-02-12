@@ -1,9 +1,7 @@
 # The Go Workshop
-[![GitHub issues](https://img.shields.io/github/issues/PacktWorkshops/The-Go-Workshop.svg)](https://github.com/PacktWorkshops/The-Go-Workshop/issues)
-[![GitHub forks](https://img.shields.io/github/forks/PacktWorkshops/The-Go-Workshop.svg)](https://github.com/PacktWorkshops/The-Go-Workshop/network)
-[![GitHub stars](https://img.shields.io/github/stars/PacktWorkshops/The-Go-Workshop.svg)](https://github.com/PacktWorkshops/The-Go-Workshop/stargazers)
+[![build](https://github.com/ibiscum/The-Go-Workshop/actions/workflows/build.yml/badge.svg)](https://github.com/ibiscum/The-Go-Workshop/actions/workflows/build.yml)
+[![test](https://github.com/ibiscum/The-Go-Workshop/actions/workflows/test.yml/badge.svg)](https://github.com/ibiscum/The-Go-Workshop/actions/workflows/test.yml)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/PacktWorkshops/The-Go-Workshop/pulls)
-[![Go 1.12](https://img.shields.io/badge/Go-1.12-blue.svg)](https://golang.org/doc/install)
 
 This is the repository for [The Go Workshop](https://www.amazon.com/Go-Workshop-Interactive-Approach-Learning-dp-1838647945/dp/1838647945/ref=mt_other?_encoding=UTF8&me=&qid=1611061203&utm_source=github&utm_medium=repository&utm_campaign=9781838647940&utm_term=Go&utm_content=The%20Go%20Workshop), published by [Packt](https://www.packtpub.com/?utm_source=github). It contains all the supporting project files necessary to work through the course from start to finish.
 
