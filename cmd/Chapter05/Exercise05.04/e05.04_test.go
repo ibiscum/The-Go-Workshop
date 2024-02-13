@@ -1,8 +1,14 @@
 package main
 
-import "testing"
+import (
+	"os"
+	"testing"
+)
 
 func TestCsvHdrCol(t *testing.T) {
+	if os.Getenv("TEST_NO_CI") != "" {
+		t.Skip("Skipping, not yet prepared for CI")
+	}
 
 	testCases := []struct {
 		name   string

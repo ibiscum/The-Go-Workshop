@@ -8,7 +8,7 @@ import (
 // TestGetDataAndParseResponse requires the server to be running to succeed
 func TestGetDataAndParseResponse(t *testing.T) {
 	if os.Getenv("TEST_NO_CI") != "" {
-		t.Skip("Skipping not finished test")
+		t.Skip("Skipping, not yet prepared for CI")
 	}
 	electricCount, boogalooCount := getDataAndParseResponse()
 	if electricCount < 1 {
