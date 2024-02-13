@@ -9,6 +9,9 @@ on:
   pull_request:
     branches: [ "master" ]
 
+env:
+  TEST_NO_CI: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
