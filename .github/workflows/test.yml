@@ -13,7 +13,7 @@ env:
   TEST_NO_CI: true
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
