@@ -11,7 +11,7 @@ import (
 	"testing"
 )
 
-func TestFileUpload_ServeHTTP(t *testing.T) {
+func TestFileUploadServeHTTP(t *testing.T) {
 	server := server{}
 
 	fileDataBuffer := bytes.Buffer{}

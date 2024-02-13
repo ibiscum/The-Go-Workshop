@@ -1,19 +1,25 @@
 package main
+
 import (
 	"encoding/json"
 	"log"
 	"net/http"
 )
+
 var names []string
+
 type Name struct {
 	Name string `json:"name"`
 }
+
 type Names struct {
 	Names []string `json:"names"`
 }
+
 type Resp struct {
 	OK bool `json:"ok"`
 }
+
 func GetNames(wr http.ResponseWriter, req *http.Request) {
 	if req.Method != "GET" {
 		wr.WriteHeader(400)
@@ -27,6 +33,7 @@ func GetNames(wr http.ResponseWriter, req *http.Request) {
 	}
 	wr.Write(bts)
 }
+
 func AddName(wr http.ResponseWriter, req *http.Request) {
 	if req.Method != "POST" {
 		wr.WriteHeader(400)
@@ -48,6 +55,7 @@ func AddName(wr http.ResponseWriter, req *http.Request) {
 	}
 	wr.Write(bts)
 }
+
 func main() {
 	http.HandleFunc("/addName", AddName)
 	http.HandleFunc("/", GetNames)

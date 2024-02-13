@@ -9,12 +9,12 @@ import (
 )
 
 func TestPageWithCounter_ServeHTTP(t *testing.T) {
-	cntr := PageWithCounter{heading: "title", content:"some content"}
+	cntr := PageWithCounter{heading: "title", content: "some content"}
 
 	r := httptest.NewRequest(http.MethodGet, "/", strings.NewReader(""))
 	w := httptest.NewRecorder()
 
-	cntr.ServeHTTP(w,r)
+	cntr.ServeHTTP(w, r)
 	if cntr.counter != 1 {
 		t.Errorf("We expected 1 view but we received %d", cntr.counter)
 	}
@@ -27,7 +27,7 @@ func TestPageWithCounter_ServeHTTP(t *testing.T) {
 
 	w = httptest.NewRecorder()
 
-	cntr.ServeHTTP(w,r)
+	cntr.ServeHTTP(w, r)
 	if cntr.counter != 2 {
 		t.Errorf("We expected 1 view but we received %d", cntr.counter)
 	}

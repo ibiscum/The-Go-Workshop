@@ -7,9 +7,9 @@ import (
 
 func main() {
 	hdr := []string{"empid", "employee", "address", "hours worked", "hourly rate", "manager"}
-	result := csvHdrCol(hdr)
-	fmt.Println("Result:")
-	fmt.Println(result)
+	result1 := csvHdrCol(hdr)
+	fmt.Println("Result1:")
+	fmt.Println(result1)
 	fmt.Println()
 
 	hdr2 := []string{"employee", "empid", "hours worked", "address", "manager", "hourly rate"}

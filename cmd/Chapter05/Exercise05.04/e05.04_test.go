@@ -24,7 +24,7 @@ func TestCsvHdrCol(t *testing.T) {
 		{
 			name:   "hourly rate test",
 			hdr:    []string{"employee", "hourly rate"},
-			wanted: "hourly ratee",
+			wanted: "hourly rate",
 		},
 	}
 
@@ -40,10 +40,8 @@ func TestCsvHdrCol(t *testing.T) {
 					if v != tc.wanted {
 						t.Errorf("got %v, wanted %v", got, tc.wanted)
 					}
-
 				}
 			}
 		})
 	}
-
 }

@@ -1,4 +1,5 @@
 package main
+
 import (
 	"bytes"
 	"encoding/json"
@@ -8,7 +9,9 @@ import (
 	"log"
 	"net/http"
 )
+
 var url = "http://localhost:8088"
+
 type Name struct {
 	Name string `json:"name"`
 }
@@ -18,6 +21,7 @@ type Names struct {
 type Resp struct {
 	OK bool `json:"ok"`
 }
+
 func addNameAndParseResponse(nameToAdd string) error {
 	name := Name{Name: nameToAdd}
 	nameBytes, err := json.Marshal(name)
@@ -44,6 +48,7 @@ func addNameAndParseResponse(nameToAdd string) error {
 	}
 	return nil
 }
+
 func getDataAndParseResponse() []string {
 	// send the GET request
 	r, err := http.Get(fmt.Sprintf("%s/", url))
@@ -64,6 +69,7 @@ func getDataAndParseResponse() []string {
 	// return the data
 	return names.Names
 }
+
 func main() {
 	err := addNameAndParseResponse("Electric")
 	if err != nil {

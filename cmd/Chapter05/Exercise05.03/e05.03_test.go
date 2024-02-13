@@ -42,7 +42,5 @@ func TestFizzBuzz(t *testing.T) {
 			}
 
 		})
-
 	}
-
 }

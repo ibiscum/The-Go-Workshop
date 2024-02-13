@@ -26,6 +26,7 @@ func TestHoursWorked(t *testing.T) {
 			wanted:   70,
 		},
 	}
+
 	for _, tc := range testCases {
 		tc := tc
 		t.Run(tc.name, func(t *testing.T) {
@@ -75,7 +76,6 @@ func TestLogHours(t *testing.T) {
 			}
 		})
 	}
-
 }
 
 func TestPayDay(t *testing.T) {
@@ -86,7 +86,6 @@ func TestPayDay(t *testing.T) {
 		wantedIsOverTime bool
 		wantedPay        int
 	}{
-
 		{
 			name:             "40 hour work week",
 			workWeek:         [7]int{0, 8, 8, 8, 8, 8, 0},
@@ -94,15 +93,13 @@ func TestPayDay(t *testing.T) {
 			wantedIsOverTime: false,
 			wantedPay:        400,
 		},
-
 		{
 			name:             "Overtime week",
 			workWeek:         [7]int{10, 10, 10, 10, 10, 10, 10},
 			hourlyRate:       10,
 			wantedIsOverTime: true,
-			wantedPay:        760,
+			wantedPay:        1000,
 		},
-
 		{
 			name:             "20 hour work week",
 			workWeek:         [7]int{0, 8, 8, 4, 0, 0, 0},
@@ -121,10 +118,8 @@ func TestPayDay(t *testing.T) {
 
 			gotPay, gotIsOverTime := d.PayDay()
 			if tc.wantedPay != gotPay || tc.wantedIsOverTime != gotIsOverTime {
-				t.Errorf("Pay got %v, expected %v.  Is over time got %v, expected %v", gotPay, tc.wantedPay, gotIsOverTime, tc.wantedIsOverTime)
-
+				t.Errorf("Pay got %v, expected %v. Is over time got %v, expected %v", gotPay, tc.wantedPay, gotIsOverTime, tc.wantedIsOverTime)
 			}
-
 		})
 	}
 }
