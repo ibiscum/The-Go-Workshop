@@ -8,7 +8,7 @@ import (
 type hello struct{}
 
 func (h hello) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	msg := "<h1>Hello World</h1"
+	msg := "<h1>Hello World</h1>"
 	w.Write([]byte(msg))
 }
 
