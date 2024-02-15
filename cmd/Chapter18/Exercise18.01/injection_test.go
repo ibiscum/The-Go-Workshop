@@ -1,18 +1,23 @@
 package exercise1
+
 import (
 	"database/sql"
 	"fmt"
 	"os"
 	"testing"
+
 	_ "github.com/mattn/go-sqlite3"
 	"github.com/stretchr/testify/assert"
 )
+
 var db *sql.DB
+
 type UserDetails struct {
 	Id         string
 	CardNumber string
 	Address    string
 }
+
 var testData = []*UserDetails{
 	{
 		Id:         "1",
@@ -25,6 +30,7 @@ var testData = []*UserDetails{
 		Address:    "2 Chi Creek",
 	},
 }
+
 func getConnection() (*sql.DB, error) {
 	conn, err := sql.Open("sqlite3", "test.DB")
 	if err != nil {

@@ -1,4 +1,5 @@
 package main
+
 import (
 	"crypto/rand"
 	"crypto/rsa"
@@ -6,8 +7,9 @@ import (
 	"fmt"
 	"os"
 )
+
 func main() {
-	privateKey, err := rsa.GenerateKey(rand.Reader, 1024)
+	privateKey, err := rsa.GenerateKey(rand.Reader, 2048)
 	if err != nil {
 		fmt.Printf("error generating rsa key: %v", err)
 	}

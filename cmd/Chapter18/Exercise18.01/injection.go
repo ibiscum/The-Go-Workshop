@@ -1,9 +1,11 @@
 package exercise1
+
 import (
 	"database/sql"
 	"fmt"
 	"strings"
 )
+
 func UpdatePhone(db *sql.DB, ID string, phone string) error {
 	var builder strings.Builder
 	builder.WriteString("UPDATE USER_DETAILS SET PHONE=")

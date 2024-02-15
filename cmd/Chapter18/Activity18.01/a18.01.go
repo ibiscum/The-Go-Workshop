@@ -1,15 +1,19 @@
 package main
+
 import (
 	"crypto/sha512"
 	"database/sql"
 	"fmt"
 	"os"
+
 	_ "github.com/mattn/go-sqlite3"
 )
+
 type UserDetails struct {
 	Id       string
 	Password string
 }
+
 var testData = []*UserDetails{
 	{
 		Id:       "1",
@@ -20,6 +24,7 @@ var testData = []*UserDetails{
 		Password: "5678",
 	},
 }
+
 func initializeDB(db *sql.DB) error {
 	_, err := db.Exec(`CREATE TABLE IF NOT EXISTS USER_DETAILS (USER_ID TEXT, PASSWORD TEXT)`)
 	if err != nil {
@@ -100,6 +105,7 @@ func main() {
 	if err != nil {
 		fmt.Println("error updating password: ", err)
 	}
+
 	// Check password
 	fmt.Println("retrieving hashed password from db")
 	password, err := GetPassword(db, "1")
