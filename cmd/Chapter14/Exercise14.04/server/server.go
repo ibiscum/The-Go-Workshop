@@ -21,11 +21,16 @@ func (srv server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	err = os.WriteFile(fmt.Sprintf("./%s", uploadedFileHeader.Filename), fileContent, 0666)
 	if err != nil {
 		log.Fatal(err)
 	}
-	w.Write([]byte(fmt.Sprintf("%s Uploaded!", uploadedFileHeader.Filename)))
+
+	_, err = w.Write([]byte(fmt.Sprintf("%s Uploaded!", uploadedFileHeader.Filename)))
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func main() {
