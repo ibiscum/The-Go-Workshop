@@ -13,7 +13,11 @@ func (srv server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	auth := r.Header.Get("Authorization")
 	if auth != "superSecretToken" {
 		w.WriteHeader(http.StatusUnauthorized)
-		w.Write([]byte("Authorization token not recognized"))
+		_, err := w.Write([]byte("Authorization token not recognized"))
+		if err != nil {
+			log.Fatal(err)
+		}
+
 		return
 	}
 
