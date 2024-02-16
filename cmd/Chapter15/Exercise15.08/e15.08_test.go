@@ -7,9 +7,10 @@ import (
 	"net/http/httptest"
 	"testing"
 )
+
 func Test_posted(t *testing.T) {
 	msg := Request{
-		Name: "john",
+		Name:    "john",
 		Surname: "smith",
 	}
 	bts, err := json.Marshal(msg)
@@ -21,9 +22,9 @@ func Test_posted(t *testing.T) {
 
 	w := httptest.NewRecorder()
 
-	Hello(w,r)
+	Hello(w, r)
 
-	expected, err := json.Marshal(Response{Greeting:"Hello john smith"})
+	expected, err := json.Marshal(Response{Greeting: "Hello john smith"})
 	if err != nil {
 		t.Error(err)
 	}

@@ -8,7 +8,7 @@ import (
 )
 
 type Request struct {
-	Name string
+	Name    string
 	Surname string
 }
 
@@ -32,12 +32,16 @@ func Hello(wr http.ResponseWriter, req *http.Request) {
 		wr.WriteHeader(400)
 		return
 	}
-	wr.Write(bts)
+
+	_, err = wr.Write(bts)
+	if err != nil {
+		wr.WriteHeader(500)
+		return
+	}
 }
 
 func main() {
 	http.HandleFunc("/", Hello)
-
 
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
