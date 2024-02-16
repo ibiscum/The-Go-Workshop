@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
+	"log"
 	"testing"
 )
 
@@ -32,7 +33,10 @@ func TestPay(t *testing.T) {
 			d := Developer{Individual: Employee{Id: 1, FirstName: tc.inputFirst, LastName: tc.inputLast}, HourlyRate: tc.inputHourlyRate, HoursWorkedInYear: tc.inputHoursWorkedInYear, Review: nil}
 			gotName, gotSalary := d.Pay()
 			if gotName != tc.wantedFullName || gotSalary != tc.wantedPay {
-				fmt.Errorf("Got name: %v wanted name: %v Got salary: %v wanted salary %v", gotName, tc.wantedFullName, gotSalary, tc.wantedPay)
+				err := fmt.Errorf("Got name: %v wanted name: %v Got salary: %v wanted salary %v", gotName, tc.wantedFullName, gotSalary, tc.wantedPay)
+				if err != nil {
+					log.Fatal(err)
+				}
 			}
 		})
 	}
@@ -58,7 +62,10 @@ func TestFullName(t *testing.T) {
 			d := Developer{Individual: Employee{Id: 1, FirstName: tc.fname, LastName: tc.lname}}
 			gotName := d.FullName()
 			if gotName != tc.wanted {
-				fmt.Errorf("Got name: %v wanted name: %v ", gotName, tc.wanted)
+				err := fmt.Errorf("Got name: %v wanted name: %v ", gotName, tc.wanted)
+				if err != nil {
+					log.Fatal(err)
+				}
 			}
 		})
 	}
@@ -90,7 +97,10 @@ func TestManagerPay(t *testing.T) {
 			m := Manager{Individual: Employee{Id: 2, FirstName: tc.inputFirst, LastName: tc.inputLast}, Salary: tc.inputSalary, CommissionRate: tc.inputCommissionRate}
 			gotName, gotSalary := m.Pay()
 			if gotName != tc.wantedFullName || gotSalary != tc.wantedPay {
-				fmt.Errorf("Got name: %v wanted name: %v Got salary: %v wanted salary %v", gotName, tc.wantedFullName, gotSalary, tc.wantedPay)
+				err := fmt.Errorf("Got name: %v wanted name: %v Got salary: %v wanted salary %v", gotName, tc.wantedFullName, gotSalary, tc.wantedPay)
+				if err != nil {
+					log.Fatal(err)
+				}
 			}
 		})
 	}
@@ -145,7 +155,10 @@ func TestConvertReviewToInt(t *testing.T) {
 		gotrating, goterr := convertReviewToInt(tc.review)
 
 		if gotrating != tc.wantedInt || goterr != tc.wantedErr {
-			fmt.Errorf("Got rating: %v wanted: %v Got error: %v wanted %v", gotrating, tc.wantedInt, goterr, tc.wantedErr)
+			err := fmt.Errorf("Got rating: %v wanted: %v Got error: %v wanted %v", gotrating, tc.wantedInt, goterr, tc.wantedErr)
+			if err != nil {
+				log.Fatal(err)
+			}
 		}
 	}
 }

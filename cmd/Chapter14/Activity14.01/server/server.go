@@ -28,7 +28,10 @@ func (srv server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	// convert struct to bytes
 	jsonBytes, _ := json.Marshal(names)
 	log.Println(string(jsonBytes))
-	w.Write(jsonBytes)
+	_, err := w.Write(jsonBytes)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func main() {
