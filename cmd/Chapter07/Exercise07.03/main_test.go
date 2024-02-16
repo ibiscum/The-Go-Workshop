@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"testing"
 )
 
@@ -36,7 +37,10 @@ func TestNewRecord(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			got := newRecord(tc.inputKey, tc.inputInterface)
 			if got.key != tc.wanted.key {
-				fmt.Errorf("Got: %v wanted %v", got, tc.wanted.key)
+				err := fmt.Errorf("Got: %v wanted %v", got, tc.wanted.key)
+				if err != nil {
+					log.Fatal(err)
+				}
 
 			}
 		})

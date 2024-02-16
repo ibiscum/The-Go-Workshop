@@ -19,7 +19,11 @@ func (h *PageWithCounter) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(400)
 		return
 	}
-	w.Write([]byte(bts))
+	_, err = w.Write([]byte(bts))
+	if err != nil {
+		log.Fatal(err)
+	}
+
 }
 
 func main() {

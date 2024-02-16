@@ -1,10 +1,14 @@
 package main
+
 import (
-	"io/ioutil"
+	"io"
+	"log"
 	"net/http"
 	"net/http/httptest"
+	"os"
 	"testing"
 )
+
 func Test_name(t *testing.T) {
 	hdl, err := NewHello("./index.html")
 	if err != nil {
@@ -15,14 +19,17 @@ func Test_name(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	expected, err := ioutil.ReadFile("./teststatics/john.html")
+	expected, err := os.ReadFile("./teststatics/john.html")
 	if err != nil {
 		t.Error(err)
 	}
 	actual := make([]byte, rsp.ContentLength)
-	rsp.Body.Read(actual)
-	if  string(actual)!= string(expected) {
-		t.Errorf("\n%s\n%s", string(expected),string(actual))
+	_, err = rsp.Body.Read(actual)
+	if err != io.EOF {
+		log.Fatal(err)
+	}
+	if string(actual) != string(expected) {
+		t.Errorf("\n%s\n%s", string(expected), string(actual))
 	}
 }
 
@@ -36,13 +43,13 @@ func Test_anonymous(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	expected, err := ioutil.ReadFile("./teststatics/anonymous.html")
+	expected, err := os.ReadFile("./teststatics/anonymous.html")
 	if err != nil {
 		t.Error(err)
 	}
 	actual := make([]byte, rsp.ContentLength)
 	rsp.Body.Read(actual)
-	if  string(actual)!= string(expected) {
-		t.Errorf("\n%s\n%s", string(expected),string(actual))
+	if string(actual) != string(expected) {
+		t.Errorf("\n%s\n%s", string(expected), string(actual))
 	}
 }
