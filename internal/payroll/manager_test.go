@@ -1,7 +1,6 @@
 package payroll
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -31,7 +30,7 @@ func TestManagerPay(t *testing.T) {
 			m := Manager{Individual: Employee{Id: 2, FirstName: tc.inputFirst, LastName: tc.inputLast}, Salary: tc.inputSalary, CommissionRate: tc.inputCommissionRate}
 			gotName, gotSalary := m.Pay()
 			if gotName != tc.wantedFullName || gotSalary != tc.wantedPay {
-				fmt.Errorf("Got name: %v wanted name: %v Got salary: %v wanted salary %v", gotName, tc.wantedFullName, gotSalary, tc.wantedPay)
+				t.Errorf("Got name: %v wanted name: %v Got salary: %v wanted salary %v", gotName, tc.wantedFullName, gotSalary, tc.wantedPay)
 			}
 		})
 	}
