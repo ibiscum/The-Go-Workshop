@@ -108,7 +108,7 @@ func main() {
 	}()
 	err = UpdatePassword(db, "1", "NewPassword")
 	if err != nil {
-		fmt.Println("error updating password: ", err)
+		fmt.Println("error updating password")
 	}
 
 	// Check password
