@@ -48,7 +48,10 @@ func Test_anonymous(t *testing.T) {
 		t.Error(err)
 	}
 	actual := make([]byte, rsp.ContentLength)
-	rsp.Body.Read(actual)
+	_, err = rsp.Body.Read(actual)
+	if err != nil {
+		t.Error(err)
+	}
 	if string(actual) != string(expected) {
 		t.Errorf("\n%s\n%s", string(expected), string(actual))
 	}

@@ -1,9 +1,9 @@
 package strings
 
-type Builder struct {
-	addr *Builder // of receiver, to detect copies by value
-	buf  []byte
-}
+// type Builder struct {
+// 	addr *Builder // of receiver, to detect copies by value
+// 	buf  []byte
+// }
 
 // https://golang.org/src/strings/compare.go
 func Compare(a, b string) int {

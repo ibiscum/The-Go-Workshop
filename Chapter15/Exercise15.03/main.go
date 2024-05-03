@@ -12,10 +12,16 @@ func Hello(w http.ResponseWriter, r *http.Request) {
 	name, ok := vl["name"]
 	if !ok {
 		w.WriteHeader(400)
-		w.Write([]byte("Missing name"))
+		_, err := w.Write([]byte("Missing name"))
+		if err != nil {
+			log.Fatal(err)
+		}
 		return
 	}
-	w.Write([]byte(fmt.Sprintf("Hello %s", strings.Join(name, ","))))
+	_, err := w.Write([]byte(fmt.Sprintf("Hello %s", strings.Join(name, ","))))
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func main() {
@@ -23,5 +29,3 @@ func main() {
 
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
-
-

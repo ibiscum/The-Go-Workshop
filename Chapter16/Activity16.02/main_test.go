@@ -1,7 +1,7 @@
 package main
 
 import (
-	"io/ioutil"
+	"os"
 	"strings"
 	"sync"
 	"testing"
@@ -9,7 +9,7 @@ import (
 
 func TestMain(t *testing.T) {
 	main()
-	bts, err := ioutil.ReadFile("result.txt")
+	bts, err := os.ReadFile("result.txt")
 	if err != nil {
 		t.Error(err)
 	}
@@ -115,7 +115,7 @@ func TestMerger(t *testing.T) {
 	odd <- 20
 	wg.Wait()
 
-	bts, err := ioutil.ReadFile(outFl)
+	bts, err := os.ReadFile(outFl)
 	if err != nil {
 		t.Error(err)
 	}

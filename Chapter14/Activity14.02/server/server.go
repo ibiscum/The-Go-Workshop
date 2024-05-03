@@ -31,7 +31,10 @@ func GetNames(wr http.ResponseWriter, req *http.Request) {
 		wr.WriteHeader(500)
 		return
 	}
-	wr.Write(bts)
+	_, err = wr.Write(bts)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func AddName(wr http.ResponseWriter, req *http.Request) {
@@ -53,7 +56,10 @@ func AddName(wr http.ResponseWriter, req *http.Request) {
 		wr.WriteHeader(400)
 		return
 	}
-	wr.Write(bts)
+	_, err = wr.Write(bts)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func main() {

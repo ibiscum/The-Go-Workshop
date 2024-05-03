@@ -25,7 +25,10 @@ func (srv server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	time.Sleep(10 * time.Second)
 
 	msg := "hello client!"
-	w.Write([]byte(msg))
+	_, err := w.Write([]byte(msg))
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func main() {

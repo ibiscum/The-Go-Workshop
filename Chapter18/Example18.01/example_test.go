@@ -71,7 +71,13 @@ func TestMain(m *testing.M) {
 		fmt.Println(err)
 		os.Exit(1)
 	}
-	defer tearDownDB(db)
+
+	defer func() {
+		err := tearDownDB(db)
+		if err != nil {
+			panic(err)
+		}
+	}()
 	if m.Run() != 0 {
 		fmt.Println("error running tests")
 		os.Exit(1)

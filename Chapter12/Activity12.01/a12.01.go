@@ -115,7 +115,10 @@ func parseBankFile(bankTransactions io.Reader, logFile string) []transaction {
 					trx.category, err = convertToBudgetCategory(value)
 					if err != nil {
 						s := strings.Join(record, ", ")
-						writeErrorToLog("error converting csv category column - ", err, s, logFile)
+						err := writeErrorToLog("error converting csv category column - ", err, s, logFile)
+						if err != nil {
+							log.Fatal(err)
+						}
 					}
 				}
 			}

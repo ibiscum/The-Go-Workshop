@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"log"
 	"net/http"
 )
@@ -34,7 +34,7 @@ func addNameAndParseResponse(nameToAdd string) error {
 	}
 	// get data from the response body
 	defer r.Body.Close()
-	data, err := ioutil.ReadAll(r.Body)
+	data, err := io.ReadAll(r.Body)
 	if err != nil {
 		return err
 	}
@@ -57,7 +57,7 @@ func getDataAndParseResponse() []string {
 	}
 	// get data from the response body
 	defer r.Body.Close()
-	data, err := ioutil.ReadAll(r.Body)
+	data, err := io.ReadAll(r.Body)
 	if err != nil {
 		log.Fatal(err)
 	}

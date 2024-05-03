@@ -100,7 +100,12 @@ func main() {
 		fmt.Println(err)
 		os.Exit(1)
 	}
-	defer tearDownDB(db)
+	defer func() {
+		err := tearDownDB(db)
+		if err != nil {
+			panic(err)
+		}
+	}()
 	err = UpdatePassword(db, "1", "NewPassword")
 	if err != nil {
 		fmt.Println("error updating password: ", err)

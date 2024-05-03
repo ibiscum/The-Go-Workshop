@@ -1,7 +1,6 @@
 package shape
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -26,7 +25,7 @@ func TestTriangleArea(t *testing.T) {
 			s := Triangle{Base: tc.base, Height: tc.height}
 			got := s.area()
 			if got != tc.wanted {
-				fmt.Errorf("Got: %v wanted %v", got, tc.wanted)
+				t.Errorf("Got: %v wanted %v", got, tc.wanted)
 			}
 
 		})
@@ -49,7 +48,7 @@ func TestTriangleName(t *testing.T) {
 			s := Triangle{}
 			got := s.name()
 			if got != tc.wanted {
-				fmt.Errorf("Got: %v wandted %v", got, tc.wanted)
+				t.Errorf("Got: %v wanted %v", got, tc.wanted)
 			}
 
 		})
@@ -77,7 +76,7 @@ func TestRectangleArea(t *testing.T) {
 			s := Rectangle{Length: tc.length, Width: tc.width}
 			got := s.area()
 			if got != tc.wanted {
-				fmt.Errorf("Got: %v wandted %v", got, tc.wanted)
+				t.Errorf("Got: %v wanted %v", got, tc.wanted)
 			}
 
 		})
@@ -100,7 +99,7 @@ func TestRectangleName(t *testing.T) {
 			s := Rectangle{}
 			got := s.name()
 			if got != tc.wanted {
-				fmt.Errorf("Got: %v wandted %v", got, tc.wanted)
+				t.Errorf("Got: %v wanted %v", got, tc.wanted)
 			}
 
 		})
@@ -125,7 +124,7 @@ func TestSquareArea(t *testing.T) {
 			s := Square{Side: tc.side}
 			got := s.area()
 			if got != tc.wanted {
-				fmt.Errorf("Got: %v wandted %v", got, tc.wanted)
+				t.Errorf("Got: %v wanted %v", got, tc.wanted)
 			}
 		})
 	}
@@ -147,9 +146,8 @@ func TestSquareName(t *testing.T) {
 			s := Square{}
 			got := s.name()
 			if got != tc.wanted {
-				fmt.Errorf("Got: %v wandted %v", got, tc.wanted)
+				t.Errorf("Got: %v wanted %v", got, tc.wanted)
 			}
-
 		})
 	}
 }

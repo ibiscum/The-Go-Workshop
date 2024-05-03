@@ -8,7 +8,6 @@ import (
 	"crypto/x509/pkix"
 	"encoding/pem"
 	"fmt"
-	"io"
 	"log"
 	"math/big"
 	"net"
@@ -72,29 +71,29 @@ func generate() (cert []byte, privateKey []byte, err error) {
 	return cert, privateKey, nil
 }
 
-func client(caCert []byte, ClientCert tls.Certificate) (err error) {
-	certPool := x509.NewCertPool()
-	certPool.AppendCertsFromPEM(caCert)
-	client := &http.Client{
-		Transport: &http.Transport{
-			TLSClientConfig: &tls.Config{
-				RootCAs:      certPool,
-				Certificates: []tls.Certificate{ClientCert},
-			},
-		},
-	}
-	resp, err := client.Get("https://127.0.0.1:443")
-	if err != nil {
-		return err
-	}
-	defer resp.Body.Close()
-	body, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return err
-	}
-	fmt.Printf("%s: %s", time.Now().Format(time.Stamp), body)
-	return err
-}
+// func client(caCert []byte, ClientCert tls.Certificate) (err error) {
+// 	certPool := x509.NewCertPool()
+// 	certPool.AppendCertsFromPEM(caCert)
+// 	client := &http.Client{
+// 		Transport: &http.Transport{
+// 			TLSClientConfig: &tls.Config{
+// 				RootCAs:      certPool,
+// 				Certificates: []tls.Certificate{ClientCert},
+// 			},
+// 		},
+// 	}
+// 	resp, err := client.Get("https://127.0.0.1:443")
+// 	if err != nil {
+// 		return err
+// 	}
+// 	defer resp.Body.Close()
+// 	body, err := io.ReadAll(resp.Body)
+// 	if err != nil {
+// 		return err
+// 	}
+// 	fmt.Printf("%s: %s", time.Now().Format(time.Stamp), body)
+// 	return err
+// }
 
 func runServer(certFile string, key string, clientCert []byte) (err error) {
 	fmt.Println("starting HTTP server")

@@ -1,9 +1,11 @@
 package main
+
 import (
 	"fmt"
 	"html/template"
 	"net/http"
 )
+
 var content = `<html>
 <head>
 <title>My Blog</title>
@@ -18,9 +20,11 @@ var content = `<html>
   </form>
 </body>
 </html>`
+
 type input struct {
 	Comment string
 }
+
 func handler(w http.ResponseWriter, r *http.Request) {
 	var userInput = &input{
 		Comment: r.FormValue("input"),
@@ -33,5 +37,8 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 func main() {
 	http.HandleFunc("/", handler)
-	http.ListenAndServe(":8080", nil)
+	err := http.ListenAndServe(":8080", nil)
+	if err != nil {
+		panic(err)
+	}
 }
