@@ -19,6 +19,7 @@ func sum(from, to int, wg *sync.WaitGroup, res *int32) {
 
 func main() {
 	s1 := int32(0)
+
 	wg := &sync.WaitGroup{}
 	wg.Add(4)
 	go sum(1, 25, wg, &s1)
@@ -28,5 +29,4 @@ func main() {
 	wg.Wait()
 
 	log.Println(s1)
-
 }

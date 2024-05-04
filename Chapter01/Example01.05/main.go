@@ -6,7 +6,14 @@ import (
 )
 
 func getConfig() (bool, string, time.Time) {
-	return false, "info", time.Now()
+	t := time.Now()
+
+	// Defining duration
+	d := (60 * time.Second)
+
+	// Calling Truncate() method
+	trunc := t.Truncate(d)
+	return false, "info", trunc
 }
 
 func main() {

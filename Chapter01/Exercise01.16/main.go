@@ -39,7 +39,6 @@ func GetCD(sku string) string {
 	return cacheGet(CacheKeyCD + sku)
 }
 
-
 func main() {
 	cache = make(map[string]string)
 

@@ -12,7 +12,30 @@ func Test_hello(t *testing.T) {
 		want    string
 		wantErr bool
 	}{
-		// TODO: Add test cases.
+		{
+			name:    "Index 0",
+			args:    args{0},
+			want:    "Hello, world",
+			wantErr: false,
+		},
+		{
+			name:    "Index 1",
+			args:    args{1},
+			want:    "Καλημέρα κόσμε",
+			wantErr: false,
+		},
+		{
+			name:    "Index out of range",
+			args:    args{5},
+			want:    "",
+			wantErr: true,
+		},
+		{
+			name:    "Index out of range",
+			args:    args{-1},
+			want:    "",
+			wantErr: true,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -22,7 +45,7 @@ func Test_hello(t *testing.T) {
 				return
 			}
 			if got != tt.want {
-				t.Errorf("hello() = %v, want %v", got, tt.want)
+				t.Errorf("got %v, wanted %v", got, tt.want)
 			}
 		})
 	}
