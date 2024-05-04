@@ -8,7 +8,7 @@ import (
 func main() {
 	//var list []int
 	var list []int8
-	for i := 0; i < 100000; i++ {
+	for i := 0; i < 1000000; i++ {
 		list = append(list, 100)
 	}
 	fmt.Println(len(list))

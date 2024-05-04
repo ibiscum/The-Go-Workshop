@@ -10,4 +10,3 @@ func defineArray() [10]int {
 func main() {
 	fmt.Printf("%#v\n", defineArray())
 }
-

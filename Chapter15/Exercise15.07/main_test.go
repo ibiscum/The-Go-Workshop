@@ -1,6 +1,7 @@
 package main
 
 import (
+	"io"
 	"net/http"
 	"net/http/httptest"
 	"net/url"
@@ -38,7 +39,7 @@ func Test_posted(t *testing.T) {
 
 	actual := make([]byte, rsp.ContentLength)
 	_, err = rsp.Body.Read(actual)
-	if err != nil {
+	if err != io.EOF {
 		t.Error(err)
 	}
 

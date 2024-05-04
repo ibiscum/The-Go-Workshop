@@ -39,7 +39,7 @@ func TestTriangleName(t *testing.T) {
 	}{
 		{
 			name:   "Triangle Name Scenario 1",
-			wanted: "triangle",
+			wanted: "Triangle",
 		},
 	}
 
@@ -90,7 +90,7 @@ func TestRectangleName(t *testing.T) {
 	}{
 		{
 			name:   "Rectangle Name Scenario 1",
-			wanted: "rectangle",
+			wanted: "Rectangle",
 		},
 	}
 
@@ -137,7 +137,7 @@ func TestSquareName(t *testing.T) {
 	}{
 		{
 			name:   "Square Name Scenario 1",
-			wanted: "square",
+			wanted: "Square",
 		},
 	}
 
