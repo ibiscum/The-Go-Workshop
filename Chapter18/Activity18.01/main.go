@@ -115,7 +115,7 @@ func main() {
 	fmt.Println("retrieving hashed password from db")
 	password, err := GetPassword(db, "1")
 	if err != nil {
-		fmt.Println("error retrieving password: ", err)
+		fmt.Println("error retrieving password")
 	}
 	fmt.Println("checking password match")
 	ciphertext := sha512.Sum512([]byte("NewPassword"))
