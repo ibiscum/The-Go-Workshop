@@ -20,13 +20,11 @@ func TestCsvHdrCol(t *testing.T) {
 			hdr:    []string{"employee", "empid"},
 			wanted: "employee",
 		},
-
 		{
 			name:   "hours worked test",
 			hdr:    []string{"employee", "hours worked"},
 			wanted: "hours worked",
 		},
-
 		{
 			name:   "hourly rate test",
 			hdr:    []string{"employee", "hourly rate"},
