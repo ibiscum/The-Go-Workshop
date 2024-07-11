@@ -28,7 +28,7 @@ func TestSwap(t *testing.T) {
 
 	// Assertions
 	assert.Equal(t, 15, a, "Expected a to be 15")
-	assert.Equal(t, 5, b, "Expected b to be 15")
+	assert.Equal(t, 5, b, "Expected b to be 5")
 
 	mockSwap.AssertExpectations(t) // Assert that expectations were met
 }
