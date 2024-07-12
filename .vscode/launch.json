@@ -5,6 +5,22 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Exercise04.08",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "${workspaceFolder}/Chapter04/Exercise04.08/main.go",
+            "args": ["a", "ab", "abc", "abcd"]
+        },
+        {
+            "name": "Exercise04.09",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "${workspaceFolder}/Chapter04/Exercise04.09/main.go",
+            "args": ["de_DE"]
+        },
+        {
             "name": "Launch Package",
             "type": "go",
             "request": "launch",
