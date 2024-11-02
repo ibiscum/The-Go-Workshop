@@ -12,7 +12,7 @@ func countNumbers(c context.Context, r chan int) {
 		select {
 		case <-c.Done():
 			r <- v
-			break
+			// break
 		default:
 			time.Sleep(time.Millisecond * 100)
 			v++
