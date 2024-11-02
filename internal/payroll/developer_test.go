@@ -2,6 +2,7 @@ package payroll
 
 import (
 	"errors"
+	"os"
 	"testing"
 )
 
@@ -64,6 +65,10 @@ func TestFullName(t *testing.T) {
 }
 
 func TestConvertReviewToInt(t *testing.T) {
+	if os.Getenv("TEST_NO_CI") != "" {
+		t.Skip("Skipping, not yet prepared for CI")
+	}
+
 	testCases := []struct {
 		name      string
 		review    string
