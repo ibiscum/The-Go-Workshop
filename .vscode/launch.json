@@ -21,6 +21,14 @@
             "args": ["de_DE"]
         },
         {
+            "name": "Exercise05.04",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "${workspaceFolder}/Chapter05/Exercise05.04/e05.04.go",
+            "env": {"TEST_NO_CI": "true"}
+        },
+        {
             "name": "Launch Package",
             "type": "go",
             "request": "launch",

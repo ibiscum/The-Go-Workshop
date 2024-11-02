@@ -22,9 +22,9 @@ func TestNewRecord(t *testing.T) {
 		},
 		{
 			name:           "Bool Scenario",
-			inputKey:       "intValue",
+			inputKey:       "boolValue",
 			inputInterface: true,
-			wanted:         record{key: "boolValue", valueType: "bool", data: 100},
+			wanted:         record{key: "boolValue", valueType: "bool", data: true},
 		},
 		{
 			name:           "String Scenario",

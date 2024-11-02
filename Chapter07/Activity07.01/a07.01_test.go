@@ -88,7 +88,7 @@ func TestManagerPay(t *testing.T) {
 			inputLast:           "Smith",
 			inputSalary:         150000,
 			inputCommissionRate: .10,
-			wantedFullName:      "Cayden Jackson",
+			wantedFullName:      "Celina Smith",
 			wantedPay:           165000,
 		},
 	}
