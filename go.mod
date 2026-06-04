@@ -5,7 +5,7 @@ go 1.24.0
 require (
 	github.com/gorilla/mux v1.8.1
 	github.com/lib/pq v1.12.3
-	github.com/mattn/go-sqlite3 v1.14.28
+	github.com/mattn/go-sqlite3 v1.14.44
 	github.com/stretchr/testify v1.10.0
 	golang.org/x/crypto v0.45.0
 )
